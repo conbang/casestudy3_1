@@ -1,0 +1,27 @@
+:root{
+    --text-color:#333;
+    --black-color:#000;
+    --white-color:#fff;
+}
+html{
+    font-size: 62.5%;
+    text-decoration: none;
+    
+}
+h1,h2,h3,h4{
+    color: #fff;
+}
+a{
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 1.3rem;
+    padding: 10px 10px;
+}
+a:hover{
+    text-decoration: none;
+    color:var(--white-color);
+}
+li{
+    color: var(--white-color);
+    list-style-type: none;
+}
