@@ -50,6 +50,7 @@ public class LoginServLet extends HttpServlet {
                 break;
         }
 
+
     }
 
     private void register(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -102,9 +103,13 @@ public class LoginServLet extends HttpServlet {
         if (login.login(name, psw)) {
             HttpSession session = req.getSession();
             session.setAttribute("name", name);
-            session.setMaxInactiveInterval(5);
+            session.setMaxInactiveInterval(10000);
             resp.sendRedirect("/index.jsp");
-        } else {
+        } else if(name.equals("admin@gmail.com")&&psw.equals("admin123")){
+            HttpSession session = req.getSession();
+            session.setAttribute("name",name);
+            resp.sendRedirect("/admin.jsp");
+        }else {
             resp.sendRedirect("/login.jsp");
         }
     }

@@ -129,19 +129,19 @@
 </nav>
 <div class="body">
     <div class="container">
-        <h3>TÀI KHOẢN CỦA BẠN</h3>
+        <h3>QUẢN LÝ</h3>
         <div class="row">
             <a href="#" class="col-lg-3 account-info">
                 <i class="fas fa-user"></i>
-                <span>THÔNG TIN</span>
+                <span>KHÁCH HÀNG</span>
             </a>
             <a href="#" class="col-lg-3 account-info">
                 <i class="fas fa-calendar-alt"></i>
-                <span>LỊCH SỬ CHI TIẾT ĐƠN HÀNG</span>
+                <span>SẢN PHẨM</span>
             </a>
             <a href="#" class="col-lg-3 account-info">
                 <i class="fas fa-key"></i>
-                <span>KEYS</span>
+                <span>ĐƠN HÀNG</span>
             </a>
         </div>
         <div class="row">
