@@ -3,6 +3,7 @@ package controller;
 import model.Login;
 import model.LoginService;
 import model.Register;
+import model.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -96,13 +97,15 @@ public class LoginServLet extends HttpServlet {
     }
 
     private void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String name = req.getParameter("email");
         String psw = req.getParameter("psw");
         Login login = new LoginService();
-        if (login.login(name, psw)) {
+        User user = login.login(name, psw);
+        if (user != null) {
             HttpSession session = req.getSession();
-            session.setAttribute("name", name);
-            session.setMaxInactiveInterval(5);
+            session.setAttribute("name", user);
+            session.setMaxInactiveInterval(100);
             resp.sendRedirect("/index.jsp");
         } else {
             resp.sendRedirect("/login.jsp");

@@ -50,6 +50,7 @@ i{
 }
 .shopping__cart-items{
     color: #E0463B;
+    font-size: 1.2rem;
 }
 .navigation{
     background-color: #0C1015;
@@ -88,6 +89,20 @@ nav > .container{
     background-color: #39424E;
     box-sizing: border-box;
     margin: 8px;
+}
+.card-price{
+    font:bold 1.4rem Serif;
+    color: #c62a2a;
+    text-align: center;
+}
+.card-title{
+    color:#fff;
+    font-size: 1.4rem;
+    text-align: center;
+
+}
+.add-cart{
+    width:100%;
 }
 .login_form{
     border:1px solid #fff;

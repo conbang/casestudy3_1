@@ -28,7 +28,7 @@ public class Header {
                 "        integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl'" +
                 "        crossorigin='anonymous'></script>" +
                 "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>" +
-                "<script src='index.js' charset='utf-8'></script>";
+                "<script src='/resource/product/main.js' charset='utf-8'></script>";
         return library;
     }
 

@@ -40,7 +40,7 @@ public class Body {
                 "            </div>" +
                 "            <div class='shopping__cart col-lg-2'>" +
                 "                <i class='shopping__cart-img fas fa-shopping-cart'></i>" +
-                "                <ul>" +
+                "                <ul class='cart-title'>" +
                 "                    <li>" +
                 "                        <h4>Gio hang</h4>" +
                 "                    </li>" +
@@ -177,12 +177,12 @@ public class Body {
                 "                    <form method='POST' action='/login?action=register'>" +
                 "                        <div class='form-group'>" +
                 "                            <label for='name'>Ho va ten</label>" +
-                "                           <input class='form-control form-control-lg' type='text' name='name' pattern='[a-zA-Z0-9]{6,}' required>"+
+                "                           <input class='form-control form-control-lg' type='text' name='name'  placeholder='Ho va ten' pattern='[a-zA-Z0-9]{6,}' required>"+
                 "                        </div>" +
                 "                        <div class='form-group'>" +
                 "                            <label for='exampleInputEmail1'>Email</label>" +
                 "                            <input type='email' class='form-control' id='exampleInputEmail1'" +
-                "                                aria-describedby='emailHelp' name='email' required/>" +
+                "                                aria-describedby='emailHelp' placeholder='email' name='email' required/>" +
                 "                        </div>" +
                 "                        <div class='form-group'>" +
                 "                            <label for='exampleInputPassword1'>Mat khau</label>" +

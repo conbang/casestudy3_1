@@ -1,7 +1,8 @@
 <%@ page import="view.Header" %>
 <%@ page import="view.Body" %>
 <%@ page import="service.DatabaseConnection" %>
-<%@ page import="java.sql.Connection" %><%--
+<%@ page import="java.sql.Connection" %>
+<%@ page import="model.User" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 07/04/2021
@@ -27,10 +28,11 @@
 <%----------------header---------------%>
 <%
     HttpSession httpSession = request.getSession(false);
-    String s = (String) httpSession.getAttribute("name");
+    User s = (User) httpSession.getAttribute("name");
     if (s == null) {
         out.println(Body.getTopHeader("<a href='/login?action=loginForm'><i class='fas fa-user-circle'></i>Sign in</a>'"));
     } else {
+        System.out.println(s.getUserId());
         out.println(Body.getTopHeader("<a href='account.jsp'><i class='fas fa-user-circle'></i>My account</a>"));
     }
     out.println(Body.getHeader(0));
@@ -162,19 +164,20 @@
                             <div class="bestseller">
                                 <div class="row">
                                     <div class="card" style="width: 18rem;">
-                                        <img class="card-img-top" src="resource/game.jpg" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">950.000</p>
-                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addsuccess">Add to cart</a>
-                                        </div>
+                                            <img class="card-img-top" src="resource/game.jpg" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-price">950.000</p>
+                                                <button type="button" class="item add-cart btn btn-primary" data-toggle="modal"
+                                                        data-target="#addsuccess" data-id="1" onclick="addcart()">Add to cart</button>
+                                            </div>
                                     </div>
                                     <div class="card" style="width: 18rem;">
                                         <img class="card-img-top" src="resource/game.jpg" alt="Card image cap">
                                         <div class="card-body">
                                             <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">950.000</p>
-                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addsuccess">Add to cart</a>
+                                            <p class="card-price">950.000</p>
+                                            <a href="#" class="add-cart btn btn-primary" data-toggle="modal" data-target="#addsuccess">Add to cart</a>
                                         </div>
                                     </div>
                                     <div class="card" style="width: 18rem;">
@@ -312,7 +315,7 @@
 
     </div>
 
-</div>000000
+</div>
 
 <div class="modal fade" id="addsuccess" tabindex="-1" role="dialog" aria-labelledby="addsuccess" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -324,7 +327,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <p>them vao gio hang thanh cong!</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tiep tuc mua hang</button>
@@ -333,56 +336,10 @@
         </div>
     </div>
 </div>
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="about_us col-lg-3">
-                <ul>
-                    <h4>VỀ CHÚNG TÔI</h4>
-                    <li>Khách hàng đánh giá</li>
-                    <li>Liên hệ hỗ trợ</li>
-                    <li>Site map</li>
-                </ul>
-            </div>
-            <div class="about_us col-lg-3">
-                <ul>
-                    <h4>ĐIỀU KHOẢN DỊCH VỤ</h4>
-                    <li>Điều khoản đổi trả</li>
-                    <li>Điều khoản bảo mật</li>
-                    <li>Điều khoản mua hàng</li>
-                    <li>Dịch vụ khách hàng</li>
-                </ul>
-            </div>
-            <div class="about_us col-lg-3">
-                <ul>
-                    <h4>HƯỚNG DẪN</h4>
-                    <li>Cách kích hoạt Steam game</li>
-                    <li>Cách kích hoạt gift card</li>
-                    <li>Cách mua hàng</li>
-                </ul>
-            </div>
-            <div class="about_us col-lg-3">
-                <ul>
-                    <h4>CONTACT US</h4>
-                    <li><i class="fas fa-envelope-square"></i>pass: bạnahoàn</li>
-                    <li><i class="fas fa-phone"></i>    </i>phone: 096699696</li>
-                    <li><i class="fas fa-map-marker-alt"></i>c1220g1</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="index.js" charset="utf-8"></script>
+<%
+    out.println(Body.getFooter());
+    out.println(Header.getJsLibrary());
+%>
 </body>
 
 </html>

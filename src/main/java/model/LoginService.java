@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class LoginService implements Login {
     @Override
-    public boolean login(String email, String psw) {
+    public User login(String email, String psw) {
         Connection connection = DatabaseConnection.getConnection();
         if (connection != null) {
             try {
@@ -18,9 +18,11 @@ public class LoginService implements Login {
                 preparedStatement.setString(2, psw);
                 ResultSet resultSet = preparedStatement.executeQuery();
                 if (resultSet.next()) {
-                    return true;
-                } else {
-                    return false;
+                    return new User(resultSet.getString("name"),
+                            resultSet.getInt("customerId"),
+                            resultSet.getString("email"),
+                            resultSet.getInt("wallet")
+                            );
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -34,6 +36,6 @@ public class LoginService implements Login {
                 }
             }
         }
-        return false;
+        return null;
     }
 }
