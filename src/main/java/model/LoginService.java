@@ -1,4 +1,6 @@
-package service;
+package model;
+
+import service.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

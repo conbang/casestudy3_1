@@ -44,9 +44,9 @@ i{
     display: flex;
     flex-direction:row;
 }
-.shopping__cart-img::before{
+.shopping__cart-img{
+    font-size: 2.6rem;
     color: #fff;
-    border: 13px solid #606B77;
 }
 .shopping__cart-items{
     color: #E0463B;
@@ -57,12 +57,32 @@ i{
     top: 0;
     z-index: 999;
 }
+.dropdown-toggle:hover .dropdown-menu{
+    display: block;
+}
 nav > .container{
     padding: 20px 0;
 }
 .body{
     background-color: #19212B;
     padding-top:35px;
+}
+.account-info{
+    background-color: #38424E;
+    padding:26px 0;
+    text-align: center;
+    line-height: 20px;
+    margin:20px auto;
+    box-sizing:border-box;
+}
+.account-info i{
+    font-size: 2.6rem;
+    color: #fff;
+    display:block;
+}
+.account-logout{
+    margin:30px auto;
+    background-color: #606B77;
 }
 .card{
     background-color: #39424E;
@@ -77,6 +97,10 @@ nav > .container{
 .login_form label{
     color:#fff;
     font-size: 1.5rem;
+}
+.errMsg{
+    color: #c62a2a;
+    font-size: 1.4rem;
 }
 footer{
     background-color: #232F3E;

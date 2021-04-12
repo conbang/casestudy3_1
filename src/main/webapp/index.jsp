@@ -1,4 +1,7 @@
-<%--
+<%@ page import="view.Header" %>
+<%@ page import="view.Body" %>
+<%@ page import="service.DatabaseConnection" %>
+<%@ page import="java.sql.Connection" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 07/04/2021
@@ -12,90 +15,35 @@
 <html lang="en">
 
 <head>
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="resource/base.css">
-    <link rel="stylesheet" href="resource/main.css">
+    <%
+        String info = Header.getInfoHead("Home");
+        String csslibray = Header.getCssLibrary();
+        out.println(info);
+        out.println(csslibray);
+    %>
 </head>
 
 <body>
-<div class="top">
-    <div class="container">
-        <div class="row">
-            <div class="col-3 dropdown currency">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-                    VND
-                </button>
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">VND</a>
-                </div>
-            </div>
-            <div class="col-9 right__top">
-                <a href="#"><i class="far fa-check-square"></i>Checkout</a>
-                <a href="#"><i class="fas fa-user-circle"></i>
-                    <%
-                        HttpSession session1 = request.getSession(false);
-                    %>
-                    <c:choose>
-                        <c:when test="${session1==null}">Sign in</c:when>
-                        <c:when test="${session1!=null}">
-                            My account
-                        </c:when>
-                    </c:choose>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-<header>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <img src="resource/logo.jpg" alt="">
-            </div>
-            <div class="col-lg-4">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Enter keyword here"
-                           aria-label="Enter keyword here" aria-describedby="button-addon2">
-                    <button class="btn btn-search" type="button" id="button-addon2"><i
-                            class="fas fa-search"></i></button>
-                </div>
-            </div>
-            <div class="shopping__cart col-lg-2">
-                <i class="shopping__cart-img fas fa-shopping-cart"></i>
-                <ul>
-                    <li>
-                        <h4>Gio hang</h4>
-                    </li>
-                    <li>
-                        <span class="shopping__cart-items">0 items</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</header>
-<nav class="navigation">
-    <div class="container">
-        <ul class="nav">
-            <li class="nav-item"><a href="#" class="nav-link">HOME</a></li>
-            <li class="nav-item"><a href="" class="nav-link">GAME</a></li>
-            <li class="nav-item"><a href="" class="nav-link">THE GOOGLE</a></li>
-            <li class="nav-item"><a href="" class="nav-link">THE DT</a></li>
-            <li class="nav-item"><a href="" class="nav-link">THE XBOX</a></li>
-            <li class="nav-item"><a href="" class="nav-link">THE STEAM</a></li>
-            <li class="nav-item"><a href="" class="nav-link">THE ITUNE</a></li>
-            <li class="nav-item"><a href="" class="nav-link">NHAN KEY</a></li>
-        </ul>
-
-    </div>
-</nav>
+<%----------------header---------------%>
+<%
+    HttpSession httpSession = request.getSession(false);
+    String s = (String) httpSession.getAttribute("name");
+    if (s == null) {
+        out.println(Body.getTopHeader("<a href='/login?action=loginForm'><i class='fas fa-user-circle'></i>Sign in</a>'"));
+    } else {
+        out.println(Body.getTopHeader("<a href='account.jsp'><i class='fas fa-user-circle'></i>My account</a>"));
+    }
+    out.println(Body.getHeader(0));
+%>
+<%-------------------nav bar-------------------------%>
+<%
+    if (s == null) {
+        out.println(Body.getNavbar("<li class='nav-item'><a href='/login.jsp' class='nav-link'>NHAN KEY</a></li>"));
+    } else {
+        out.println(Body.getNavbar("<li class='nav-item'><a href='/account?action=key' class='nav-link'>NHAN KEY</a></li>"));
+    }
+%>
+<%-----------------------content-------------------------------%>
 <div class="body">
     <div class="container">
         <div class="row">
@@ -218,7 +166,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Card title</h5>
                                             <p class="card-text">950.000</p>
-                                            <a href="#" class="btn btn-primary">Add to cart</a>
+                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addsuccess">Add to cart</a>
                                         </div>
                                     </div>
                                     <div class="card" style="width: 18rem;">
@@ -226,7 +174,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Card title</h5>
                                             <p class="card-text">950.000</p>
-                                            <a href="#" class="btn btn-primary">Add to cart</a>
+                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addsuccess">Add to cart</a>
                                         </div>
                                     </div>
                                     <div class="card" style="width: 18rem;">
@@ -234,7 +182,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Card title</h5>
                                             <p class="card-text">950.000</p>
-                                            <a href="#" class="btn btn-primary">Add to cart</a>
+                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addsuccess">Add to cart</a>
                                         </div>
                                     </div>
                                     <div class="card" style="width: 18rem;">
@@ -242,17 +190,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Card title</h5>
                                             <p class="card-text">950.000</p>
-                                            <a href="#" class="btn btn-primary">Add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="card" style="width: 18rem;">
-                                        <img class="card-img-top" src="resource/game.jpg" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">950.000</p>
-                                            <a href="#" class="btn btn-primary">Add to cart</a>
+                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addsuccess">Add to cart</a>
                                         </div>
                                     </div>
                                     <div class="card" style="width: 18rem;">
@@ -260,7 +198,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Card title</h5>
                                             <p class="card-text">950.000</p>
-                                            <a href="#" class="btn btn-primary">Add to cart</a>
+                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addsuccess">Add to cart</a>
                                         </div>
                                     </div>
                                     <div class="card" style="width: 18rem;">
@@ -268,7 +206,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Card title</h5>
                                             <p class="card-text">950.000</p>
-                                            <a href="#" class="btn btn-primary">Add to cart</a>
+                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addsuccess">Add to cart</a>
                                         </div>
                                     </div>
                                     <div class="card" style="width: 18rem;">
@@ -276,7 +214,15 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Card title</h5>
                                             <p class="card-text">950.000</p>
-                                            <a href="#" class="btn btn-primary">Add to cart</a>
+                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addsuccess">Add to cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="card" style="width: 18rem;">
+                                        <img class="card-img-top" src="resource/game.jpg" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">950.000</p>
+                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addsuccess">Add to cart</a>
                                         </div>
                                     </div>
                                 </div>
@@ -366,6 +312,26 @@
 
     </div>
 
+</div>000000
+
+<div class="modal fade" id="addsuccess" tabindex="-1" role="dialog" aria-labelledby="addsuccess" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Da them gio hang thanh cong</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tiep tuc mua hang</button>
+                <button type="button" class="btn btn-primary">Den gio hang</button>
+            </div>
+        </div>
+    </div>
 </div>
 <footer>
     <div class="container">
