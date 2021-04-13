@@ -1,4 +1,4 @@
-<%@ page import="view.Header" %>
+<%@ page import="view.Library" %>
 <%@ page import="view.Body" %>
 <%@ page import="model.User" %><%--
   Created by IntelliJ IDEA.
@@ -14,8 +14,8 @@
 <%------------------- css libray------------------------%>
 <head>
     <%
-        String info = Header.getInfoHead("Login");
-        String csslibray = Header.getCssLibrary();
+        String info = Library.getInfoHead("Login");
+        String csslibray = Library.getCssLibrary();
         out.println(info);
         out.println(csslibray);
     %>
@@ -58,7 +58,7 @@
 </div>
 <%
     out.println(Body.getFooter());
-    out.println(Header.getJsLibrary());
+    out.println(Library.getJsLibrary());
 %>
 </body>
 

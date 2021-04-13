@@ -1,8 +1,8 @@
 package controller;
 
-import model.Login;
-import model.LoginService;
-import model.Register;
+import service.Login;
+import service.LoginService;
+import service.Register;
 import model.User;
 
 import javax.servlet.RequestDispatcher;
@@ -111,13 +111,15 @@ public class LoginServLet extends HttpServlet {
             session.setAttribute("name",name);
             resp.sendRedirect("/admin.jsp");
         }else {
-            resp.sendRedirect("/login.jsp");
+            req.setAttribute("action","login");
+            req.getRequestDispatcher("/login.jsp").forward(req,resp);
         }
     }
 
     private void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         session.invalidate();
-        resp.sendRedirect("/login.jsp");
+        req.setAttribute("action","login");
+        req.getRequestDispatcher("/login.jsp").forward(req,resp);
     }
 }

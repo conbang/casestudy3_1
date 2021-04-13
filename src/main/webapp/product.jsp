@@ -1,7 +1,7 @@
 <%@ page import="model.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.LinkedList" %>
-<%@ page import="view.Header" %>
+<%@ page import="view.Library" %>
 <%@ page import="view.Body" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -18,8 +18,8 @@
 
 <head>
     <%
-        String info = Header.getInfoHead("Login");
-        String csslibray = Header.getCssLibrary();
+        String info = Library.getInfoHead("Login");
+        String csslibray = Library.getCssLibrary();
         out.println(info);
         out.println(csslibray);
     %>
@@ -64,7 +64,7 @@
 </div>
 <%
     out.println(Body.getFooter());
-    out.println(Header.getJsLibrary());
+    out.println(Library.getJsLibrary());
 %>
 </body>
 </html>

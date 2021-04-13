@@ -15,34 +15,36 @@ import java.util.List;
 
 @WebServlet(name = "ProductServlet", value = "/product")
 public class ProductServlet extends HttpServlet {
-    List<Product> list = null;
+    private static List<Product> list = null;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
         GetListProduct listProduct = new GetListProduct();
         list = listProduct.getListProduct();
-        if(action==null){
+        if (action == null) {
             action = "";
         }
-        switch (action){
+        switch (action) {
             case "category":
-                showListTypeProduct(req,resp);
+                showListTypeProduct(req, resp);
                 break;
             case "product":
-                showProduct(req,resp);
+                showProduct(req, resp);
                 break;
         }
     }
-    private void showListTypeProduct(HttpServletRequest req,HttpServletResponse resp){
+
+    private void showListTypeProduct(HttpServletRequest req, HttpServletResponse resp) {
         String type = req.getParameter("type");
         String currency = req.getParameter("cur");
         List<Product> ListTypeProduct = new LinkedList<>();
         for (int i = 0; i < list.size(); i++) {
-            if(type.equals(list.get(i).getType())&&currency.equals(list.get(i).getCurrency())){
+            if (type.equals(list.get(i).getType()) && currency.equals(list.get(i).getCurrency())) {
                 ListTypeProduct.add(list.get(i));
             }
         }
-        req.setAttribute("list",ListTypeProduct);
+        req.setAttribute("list", ListTypeProduct);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/product.jsp");
         try {
             dispatcher.forward(req, resp);
@@ -52,10 +54,11 @@ public class ProductServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-    private void showProduct(HttpServletRequest req,HttpServletResponse resp){
+
+    private void showProduct(HttpServletRequest req, HttpServletResponse resp) {
         int id = Integer.parseInt(req.getParameter("id"));
         for (int i = 0; i < list.size(); i++) {
-            if(id == list.get(i).getProductId()){
+            if (id == list.get(i).getProductId()) {
 
             }
         }

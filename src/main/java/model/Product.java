@@ -1,6 +1,5 @@
 package model;
 
-import java.util.Locale;
 
 public class Product {
     private int productId;
@@ -11,11 +10,11 @@ public class Product {
     private String image;
     private String key;
 
-    public Product(int productId,String type, float value,int rate, String currency, String image) {
+    public Product(int productId, String type, float value, int rate, String currency, String image) {
         this.productId = productId;
         this.type = type;
         this.value = value;
-        this.rate=rate;
+        this.rate = rate;
         this.currency = currency;
         this.image = image;
     }

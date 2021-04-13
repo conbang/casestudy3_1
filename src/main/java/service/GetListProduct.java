@@ -21,7 +21,7 @@ public class GetListProduct implements IGetProduct {
                 ResultSet resultSet = preparedStatement.executeQuery();
                 while (resultSet.next()) {
                     listProduct.add(new Product(
-                            resultSet.getInt("int"),
+                            resultSet.getInt("id"),
                             resultSet.getString("type"),
                             resultSet.getFloat("value"),
                             resultSet.getInt("rate"),
@@ -31,12 +31,10 @@ public class GetListProduct implements IGetProduct {
             } catch (SQLException e) {
                 e.printStackTrace();
             } finally {
-                if (connection != null) {
-                    try {
-                        connection.close();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
             }
         }

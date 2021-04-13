@@ -1,8 +1,8 @@
 package view;
 
 public class Body {
-    public static String getTopHeader(String link){
-        String topHeader="<div class='top'>" +
+    public static String getTopHeader(String link) {
+        String topHeader = "<div class='top'>" +
                 "    <div class='container'>" +
                 "        <div class='row'>" +
                 "            <div class='currency col-3 '>" +
@@ -14,15 +14,16 @@ public class Body {
                 "                </div>" +
                 "            </div>" +
                 "            <div class='col-9 right__top'>" +
-                "                <a href='#'><i class='far fa-check-square'></i>Checkout</a>"+link+
+                "                <a href='/cart?action=checkout'><i class='far fa-check-square'></i>Checkout</a>" + link +
                 "            </div>" +
                 "        </div>" +
                 "    </div>" +
                 "</div>";
         return topHeader;
     }
-    public static String getHeader(int item){
-        String header="<header>" +
+
+    public static String getHeader(int item) {
+        String header = "<header>" +
                 "    <div class='container'>" +
                 "        <div class='row'>" +
                 "            <div class='col-lg-3'>" +
@@ -45,7 +46,7 @@ public class Body {
                 "                        <h4>Gio hang</h4>" +
                 "                    </li>" +
                 "                    <li>" +
-                "                        <span class='shopping__cart-items'>"+item+" items</span>" +
+                "                        <span class='shopping__cart-items'>" + item + " items</span>" +
                 "                    </li>" +
                 "                </ul>" +
                 "            </div>" +
@@ -54,56 +55,58 @@ public class Body {
                 "</header>";
         return header;
     }
-    public static String getNavbar(String linkkey){
-        String navbar ="<nav class='navigation'>" +
+
+    public static String getNavbar(String linkkey) {
+        String navbar = "<nav class='navigation'>" +
                 "    <div class='container'>" +
                 "        <ul class='nav'>" +
                 "            <li class='nav-item'><a href='/index.jsp' class='nav-link'>HOME</a></li>" +
                 "            <li><a class='nav-link dropdown-toggle' data-toggle='dropdown' href='' role='button' aria-haspopup='true'" +
                 "                   aria-expanded='false'>THE GOOGLE</a>" +
                 "                <div class='dropdown-menu'>" +
-                "                    <a class='dropdown-item' href='/product?type=Google Play Card&cur=USD'>THE GOOGLE USD</a>" +
-                "                    <a class='dropdown-item' href='/product?type=Google Play Card&cur=VND'>THE GOOGLE VND</a>" +
-                "                    <a class='dropdown-item' href='/product?type=Google Play Card&cur=HKD'>THE GOOGLE HKD</a>" +
-                "                    <a class='dropdown-item' href='/product?type=Google Play Card&cur=EUR'>THE GOOGLE EUR</a>" +
-                "                    <a class='dropdown-item' href='/product?type=Google Play Card&cur=JP'>THE GOOGLE JP</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Google Play Card&cur=USD'>THE GOOGLE USD</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Google Play Card&cur=VND'>THE GOOGLE VND</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Google Play Card&cur=HKD'>THE GOOGLE HKD</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Google Play Card&cur=EUR'>THE GOOGLE EUR</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Google Play Card&cur=JP'>THE GOOGLE JP</a>" +
                 "                </div>" +
                 "            </li>" +
                 "            <li><a class='nav-link dropdown-toggle' data-toggle='dropdown' href='' role='button' aria-haspopup='true'" +
                 "                   aria-expanded='false'>THE DIEN THOAI</a>" +
                 "                <div class='dropdown-menu'>" +
-                "                    <a class='dropdown-item' href='/product?type=Viettel&cur=VND'>THE VIETTEL</a>" +
-                "                    <a class='dropdown-item' href='/product?type=Mobile phone Card&cur=VND'>THE MOBBILE</a>" +
-                "                    <a class='dropdown-item' href='/product?type=Vinaphone Card&cur=VND'>THE VINAPHONE</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Viettel&cur=VND'>THE VIETTEL</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Mobile phone Card&cur=VND'>THE MOBBILE</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Vinaphone Card&cur=VND'>THE VINAPHONE</a>" +
                 "                </div>" +
                 "            </li>" +
                 "            <li><a class='nav-link dropdown-toggle' data-toggle='dropdown' href='' role='button' aria-haspopup='true'" +
                 "                   aria-expanded='false'>THE STEAM</a>" +
                 "                <div class='dropdown-menu'>" +
-                "                    <a class='dropdown-item' href='/product?type=Steam Card&cur=USD'>THE STEAM USD</a>" +
-                "                    <a class='dropdown-item' href='/product?type=Steam Card&cur=VND'>THE STEAM VND</a>" +
-                "                    <a class='dropdown-item' href='/product?type=Steam Card&cur=HKD'>THE STEAM HKD</a>" +
-                "                    <a class='dropdown-item' href='/product?type=Steam Card&cur=EUR'>THE STEAM EUR</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Steam Card&cur=USD'>THE STEAM USD</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Steam Card&cur=VND'>THE STEAM VND</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Steam Card&cur=HKD'>THE STEAM HKD</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Steam Card&cur=EUR'>THE STEAM EUR</a>" +
                 "                </div>" +
                 "            </li>" +
                 "            <li><a class='nav-link dropdown-toggle' data-toggle='dropdown' href='' role='button' aria-haspopup='true'" +
                 "                   aria-expanded='false'>THE ITUNE</a>" +
                 "                <div class='dropdown-menu'>" +
-                "                    <a class='dropdown-item' href='/product?type=Itunes Card&cur=USD'>THE ITUNE USD</a>" +
-                "                    <a class='dropdown-item' href='/product?type=Itunes Card&cur=EUR'>THE ITUNE EUR</a>" +
-                "                    <a class='dropdown-item' href='/product?type=Itunes Card&cur=HKD'>THE ITUNE HKD</a>" +
-                "                    <a class='dropdown-item' href='/product?type=Itunes Card&cur=GBP'>THE ITUNE GBP</a>" +
-                "                    <a class='dropdown-item' href='/product?type=Itunes Card&cur=VND'>THE ITUNE VND</a>" +
-                "                    <a class='dropdown-item' href='/product?type=Itunes Card&cur=JP'>THE ITUNE JP</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Itunes Card&cur=USD'>THE ITUNE USD</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Itunes Card&cur=EUR'>THE ITUNE EUR</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Itunes Card&cur=HKD'>THE ITUNE HKD</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Itunes Card&cur=GBP'>THE ITUNE GBP</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Itunes Card&cur=VND'>THE ITUNE VND</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Itunes Card&cur=JP'>THE ITUNE JP</a>" +
                 "                </div>" +
-                "            </li>" +linkkey+
+                "            </li>" + linkkey +
                 "        </ul>" +
                 "    </div>" +
                 "</nav>";
         return navbar;
     }
-    public static String getLoginForm(){
-        String sideBar="    <div class='container'>" +
+
+    public static String getLoginForm() {
+        String sideBar = "    <div class='container'>" +
                 "        <div class='row'>" +
                 "            <div class='login_form col-lg-7'>" +
                 "                <h1>Dang nhap vao tai khoan cua ban</h1>" +
@@ -127,8 +130,9 @@ public class Body {
                 "    </div>";
         return sideBar;
     }
-    public static String getFooter(){
-        String footer="<footer>" +
+
+    public static String getFooter() {
+        String footer = "<footer>" +
                 "    <div class='container'>" +
                 "        <div class='row'>" +
                 "            <div class='about_us col-lg-3'>" +
@@ -167,17 +171,18 @@ public class Body {
                 "        </div>" +
                 "    </div>" +
                 "</footer>";
-                return footer;
+        return footer;
     }
-    public static String getRegisterForm(String msg){
-        String registerForm ="<div class='container'>" +
+
+    public static String getRegisterForm(String msg) {
+        String registerForm = "<div class='container'>" +
                 "            <div class='row'>" +
                 "                <div class='login_form col-lg-7'>" +
                 "                    <h1>Tao tai khoan moi</h1>" +
                 "                    <form method='POST' action='/login?action=register'>" +
                 "                        <div class='form-group'>" +
                 "                            <label for='name'>Ho va ten</label>" +
-                "                           <input class='form-control form-control-lg' type='text' name='name'  placeholder='Ho va ten' pattern='[a-zA-Z0-9]{6,}' required>"+
+                "                           <input class='form-control form-control-lg' type='text' name='name'  placeholder='Ho va ten' pattern='[a-zA-Z0-9]{6,}' required>" +
                 "                        </div>" +
                 "                        <div class='form-group'>" +
                 "                            <label for='exampleInputEmail1'>Email</label>" +
@@ -192,7 +197,7 @@ public class Body {
                 "                        <div class='form-group form-check'>" +
                 "                            <input type='checkbox' class='form-check-input' id='exampleCheck1'>" +
                 "                            <label class='form-check-label' for='exampleCheck1'>Dang ky nhan thu thong bao</label>" +
-                "                        </div><p><span class='errMsg'>" +msg+"</span></p>"+
+                "                        </div><p><span class='errMsg'>" + msg + "</span></p>" +
                 "                        <button type='submit' class='btn btn btn-secondary'>Dang ky</button>" +
                 "                    </form>" +
                 "                </div>" +

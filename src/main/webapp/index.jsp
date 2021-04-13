@@ -1,4 +1,4 @@
-<%@ page import="view.Header" %>
+<%@ page import="view.Library" %>
 <%@ page import="view.Body" %>
 <%@ page import="service.DatabaseConnection" %>
 <%@ page import="java.sql.Connection" %>
@@ -17,8 +17,8 @@
 
 <head>
     <%
-        String info = Header.getInfoHead("Home");
-        String csslibray = Header.getCssLibrary();
+        String info = Library.getInfoHead("Home");
+        String csslibray = Library.getCssLibrary();
         out.println(info);
         out.println(csslibray);
     %>
@@ -168,8 +168,8 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">Card title</h5>
                                                 <p class="card-price">950.000</p>
-                                                <button type="button" class="item add-cart btn btn-primary" data-toggle="modal"
-                                                        data-target="#addsuccess" data-id="1" onclick="addcart()">Add to cart</button>
+                                                <button type="button" class="add-cart btn btn-primary" data-toggle="modal"
+                                                        data-target="#addsuccess" data-id="1" onclick="addcart(this)">Add to cart</button>
                                             </div>
                                     </div>
                                     <div class="card" style="width: 18rem;">
@@ -177,7 +177,8 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Card title</h5>
                                             <p class="card-price">950.000</p>
-                                            <a href="#" class="add-cart btn btn-primary" data-toggle="modal" data-target="#addsuccess">Add to cart</a>
+                                            <button type="button" class="add-cart btn btn-primary" data-toggle="modal"
+                                                    data-target="#addsuccess" data-id="3" onclick="addcart(this)">Add to cart</button>
                                         </div>
                                     </div>
                                     <div class="card" style="width: 18rem;">
@@ -334,7 +335,7 @@
 </div>
 <%
     out.println(Body.getFooter());
-    out.println(Header.getJsLibrary());
+    out.println(Library.getJsLibrary());
 %>
 </body>
 

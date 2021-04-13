@@ -1,4 +1,4 @@
-<%--
+<%@ page import="model.User" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 07/04/2021
@@ -38,7 +38,7 @@
                 <a href="#"><i class="far fa-check-square"></i>Checkout</a>
                 <%
                     HttpSession httpSession = request.getSession(false);
-                    String s = (String) httpSession.getAttribute("name");
+                    User s = (User) httpSession.getAttribute("name");
                     if(s==null){
                         out.print("<a href=\"/login.jsp\"><i class=\"fas fa-user-circle\"></i>Sign in</a>");
                     }else{
