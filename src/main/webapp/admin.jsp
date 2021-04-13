@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 07/04/2021
-  Time: 5:12 CH
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -129,7 +123,7 @@
 </nav>
 <div class="body">
     <div class="container">
-        <h3>QUẢN LÝ</h3>
+        <h3>TAO LA ADMIN</h3>
         <div class="row">
             <a href="#" class="col-lg-3 account-info">
                 <i class="fas fa-user"></i>

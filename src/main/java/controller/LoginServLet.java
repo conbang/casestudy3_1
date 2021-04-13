@@ -97,7 +97,6 @@ public class LoginServLet extends HttpServlet {
     }
 
     private void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         String name = req.getParameter("email");
         String psw = req.getParameter("psw");
         Login login = new LoginService();
@@ -107,7 +106,11 @@ public class LoginServLet extends HttpServlet {
             session.setAttribute("name", user);
             session.setMaxInactiveInterval(100);
             resp.sendRedirect("/index.jsp");
-        } else {
+        } else if(name.equals("admin@gmail.com")&&psw.equals("admin123")){
+            HttpSession session = req.getSession();
+            session.setAttribute("name",name);
+            resp.sendRedirect("/admin.jsp");
+        }else {
             resp.sendRedirect("/login.jsp");
         }
     }
