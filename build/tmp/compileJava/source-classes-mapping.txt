@@ -1,3 +1,5 @@
+controller/AdminServlet.java
+ controller.AdminServlet
 view/Body.java
  view.Body
 model/IRegister.java
@@ -14,8 +16,8 @@ controller/LoginServLet.java
  controller.LoginServLet
 model/GetListProduct.java
  model.GetListProduct
-model/LoginService.java
- model.LoginService
+controller/CartServlet.java
+ controller.CartServlet
 view/Header.java
  view.Header
 model/User.java
@@ -28,5 +30,5 @@ model/Product.java
  model.Product
 model/Login.java
  model.Login
-controller/CartServlet.java
- controller.CartServlet
+model/LoginService.java
+ model.LoginService

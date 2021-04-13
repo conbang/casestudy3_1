@@ -3,19 +3,25 @@ package model;
 import java.util.Locale;
 
 public class Product {
-    String type;
-    Float value;
-    int rate;
-    String currency;
-    String image;
-    String key;
+    private int productId;
+    private String type;
+    private Float value;
+    private int rate;
+    private String currency;
+    private String image;
+    private String key;
 
-    public Product(String type, float value,int rate, String currency, String image) {
+    public Product(int productId,String type, float value,int rate, String currency, String image) {
+        this.productId = productId;
         this.type = type;
         this.value = value;
         this.rate=rate;
         this.currency = currency;
         this.image = image;
+    }
+
+    public int getProductId() {
+        return productId;
     }
 
     public String getType() {

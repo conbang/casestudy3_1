@@ -308,13 +308,9 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
-
     </div>
-
 </div>
 
 <div class="modal fade" id="addsuccess" tabindex="-1" role="dialog" aria-labelledby="addsuccess" aria-hidden="true">

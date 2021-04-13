@@ -23,12 +23,13 @@ public class CartServlet extends HttpServlet {
         HttpSession session = req.getSession(false);
         User user = (User) session.getAttribute("name");
         if (user == null) {
+
             listproduct = new HashMap<>();
             listproduct.put(productId,quantity);
         }else{
             if (listproduct != null) {
 
-
+                listproduct = null;
             }else{
                 int id = user.getUserId();
                 Cart cart = new Cart();
