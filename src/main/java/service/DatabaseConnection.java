@@ -11,7 +11,7 @@ public class DatabaseConnection {
         String jdbcUrl = "jdbc:mysql://localhost:3306/casestudy";
         String jdbcDriver = "com.mysql.cj.jdbc.Driver";
         String username = "root";
-        String password = "123123";
+        String password = "12345678";
         Connection connection = null;
         try {
             Class.forName(jdbcDriver);

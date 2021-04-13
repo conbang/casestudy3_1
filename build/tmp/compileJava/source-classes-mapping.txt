@@ -1,24 +1,26 @@
-model/LoginService.java
- model.LoginService
-model/GetListProduct.java
- model.GetListProduct
+view/Body.java
+ view.Body
+view/Header.java
+ view.Header
+model/IRegister.java
+ model.IRegister
 controller/ProductServlet.java
  controller.ProductServlet
 model/IGetProduct.java
  model.IGetProduct
 model/Product.java
  model.Product
+model/LoginService.java
+ model.LoginService
 model/Login.java
  model.Login
-service/DatabaseConnection.java
- service.DatabaseConnection
-model/IRegister.java
- model.IRegister
-view/Header.java
- view.Header
-controller/LoginServLet.java
- controller.LoginServLet
+model/GetListProduct.java
+ model.GetListProduct
 model/Register.java
  model.Register
-view/Body.java
- view.Body
+service/DatabaseConnection.java
+ service.DatabaseConnection
+controller/AdminServlet.java
+ controller.AdminServlet
+controller/LoginServLet.java
+ controller.LoginServLet
