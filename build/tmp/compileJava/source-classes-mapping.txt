@@ -2,12 +2,16 @@ view/Body.java
  view.Body
 model/IRegister.java
  model.IRegister
+model/Cart.java
+ model.Cart
 model/Register.java
  model.Register
 service/DatabaseConnection.java
  service.DatabaseConnection
 model/ICart.java
  model.ICart
+controller/LoginServLet.java
+ controller.LoginServLet
 model/GetListProduct.java
  model.GetListProduct
 model/LoginService.java
@@ -26,7 +30,3 @@ model/Login.java
  model.Login
 controller/CartServlet.java
  controller.CartServlet
-model/Cart.java
- model.Cart
-controller/LoginServLet.java
- controller.LoginServLet
