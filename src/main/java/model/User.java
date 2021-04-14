@@ -1,10 +1,10 @@
 package model;
 
 public class User {
-    int userId;
-    String name;
-    String email;
-    int wallet;
+    private int userId;
+    private String name;
+    private String email;
+    private int wallet;
 
     public User(String name, int userId, String email, int balance) {
         this.name = name;

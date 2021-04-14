@@ -104,7 +104,7 @@ public class LoginServLet extends HttpServlet {
         if (user != null) {
             HttpSession session = req.getSession();
             session.setAttribute("name", user);
-            session.setMaxInactiveInterval(100);
+            session.setMaxInactiveInterval(1000);
             resp.sendRedirect("/index.jsp");
         } else if(name.equals("admin@gmail.com")&&psw.equals("admin123")){
             HttpSession session = req.getSession();

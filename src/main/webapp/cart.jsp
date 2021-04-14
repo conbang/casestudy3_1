@@ -22,7 +22,7 @@
         out.println(csslibray);
     %>
 </head>
-<body>
+<body onload="getItemCost()">
 <%---------------header-------------------------%>
 <%
     HttpSession httpSession = request.getSession(false);
@@ -48,12 +48,83 @@
 <div class="body">
     <div class="container">
         <div class="row">
-            <h2>Danh sach san pham</h2>
+            <div class="col-md-12 col-lg-9 col-xl-9">
+                <h2>Danh sach san pham</h2>
+                <c:forEach items="${requestScope['listCartItem']}" var="Item">
+                    <div class="item row" id="${Item.product.productId}"
+                         style="border-bottom:1px solid #0C1015;margin-bottom:30px">
+                        <div class="col-md-4 col-lg-3 col-xl-4" style="border-rigt:1px solid #0C1015">
+                            <input type="checkbox" data-id="${Item.product.productId}"
+                                   data-price="${Item.product.getPrice()}" onclick="chooseItem(this)">
+                            <img class="img-fluid w-50"
+                                 src=${Item.product.image} alt="Sample">
+                        </div>
+                        <div class="col-md-8 col-lg-9 col-xl-8" style="border-rigt:1px solid #0C1015">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h4>Mo ta</h4>
+                                    <h3 class="mb-3 text-muted text-uppercase">${Item.product.type}</h3>
+                                    <p class="card-price mb-2 text-muted">${Item.product.getPrice()} d</p>
+                                </div>
+                                <div>
+                                    <h4>So luong</h4>
+                                    <div class="def-number-input number-input safari_only mb-0 w-100"
+                                         data-price="${Item.product.getPrice()}"
+                                         data-id="${Item.product.productId}">
+                                        <button onclick="decrItem(this)"
+                                                class="minus">-
+                                        </button>
+                                        <input class="quantity" min="1" name="quantity" value="${Item.quantity}"
+                                               type="number"
+                                               style="width: 50px;">
+                                        <button onclick="addItems(this)"
+                                                class="plus">+
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div onclick="remove(this)" data-id=${Item.product.productId}>
+                                    <p type="button" class="card-link-secondary small text-uppercase mr-3"><i
+                                            class="fas fa-trash-alt mr-1" onclick="remove(this)"></i> Remove item </p>
+                                </div>
+                                <p class="mb-0"><span class="card-price"><strong
+                                        class=${Item.product.productId}>${Item.product.getPrice()*Item.quantity} d</strong></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+            <div class="col-lg-3 col-xl-3">
+                <h3 class="mb-3">Tong tien</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0"
+                        style="background-color: #19212B;">
+                        So du vi:
+                        <span><c:out value="${requestScope['user'].wallet}"></c:out></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center px-0"
+                        style="background-color: #19212B;">
+                        Tong tien:
+                        <span id="cost">0 d</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3"
+                        style="background-color: #19212B;">
+                        <div>
+                            <strong>Con du:</strong>
+                            <strong>
+                                <p class="mb-0">(including VAT)</p>
+                            </strong>
+                        </div>
+                        <span><strong id="overbalance">${requestScope['user'].wallet}</strong></span>
+                    </li>
+                </ul>
+                <button type="button" class="checkout btn btn-primary btn-block" onclick="checkout()">go to checkout</button>
+            </div>
         </div>
+
     </div>
-
-
-
 </div>
 <%
     out.println(Body.getFooter());

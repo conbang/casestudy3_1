@@ -1,5 +1,7 @@
 package controller;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import model.CartItem;
 import service.CartService;
 import model.User;
@@ -16,7 +18,7 @@ import java.util.List;
 
 @WebServlet(name = "CartServlet", value = "/cart")
 public class CartServlet extends HttpServlet {
-    List<CartItem> listproduct=null;
+    List<CartItem> listproduct = null;
     int productId;
     int quantity;
 
@@ -27,18 +29,15 @@ public class CartServlet extends HttpServlet {
         CartService cartService = new CartService();
         listproduct = cartService.getListCartItem(user.getUserId());
         String action = req.getParameter("action");
-        if(action==null){
-            action="";
+        if (action == null) {
+            action = "";
         }
-        switch (action){
+        switch (action) {
             case "checkout":
-                redirectCartPage(req,resp);
+                redirectCartPage(req, resp);
                 break;
-            case "additem":
-                addItem(req,resp);
-                break;
-            case "updateQuantity":
-                updateQuantity(req,resp);
+            case "loadcart":
+                getListCartItem(req,resp);
                 break;
         }
 
@@ -46,27 +45,42 @@ public class CartServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        HttpSession httpSession = req.getSession(false);
+        User user = (User) httpSession.getAttribute("name");
+        CartService cartService = new CartService();
+        listproduct = cartService.getListCartItem(user.getUserId());
+        JsonObject data = new Gson().fromJson(req.getReader(), JsonObject.class);
+        String action = data.get("action").getAsString();
+        productId = data.get("id").getAsInt();
+        quantity = data.get("quantity").getAsInt();
+        switch (action) {
+            case "updateQuantity":
+                updateQuantity(req, resp);
+                break;
+            case "additem":
+                addItem(req, resp);
+                break;
+        }
     }
+
     private void addItem(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        productId = Integer.parseInt(req.getParameter("id"));
-        quantity = Integer.parseInt(req.getParameter("quantity"));
-        int sumItem=0;
-        int sumPrice=0;
+        int sumItem = 0;
         boolean isItemExist = false;
         for (int i = 0; i < listproduct.size(); i++) {
-            if(listproduct.get(i).getProduct().getProductId() == productId){
-                updateQuantity(req,resp);
+            if (listproduct.get(i).getProduct().getProductId() == productId) {
+                quantity = listproduct.get(i).getQuantity() + 1;
+                sumItem += 1;
+                updateQuantity(req, resp);
                 isItemExist = true;
+                continue;
             }
-            sumItem+=listproduct.get(i).getQuantity();
-            sumPrice+=listproduct.get(i).getProduct().getPrice();
+            sumItem += listproduct.get(i).getQuantity();
         }
         resp.setContentType("text/plain");
         resp.setCharacterEncoding("UTF-8");
         PrintWriter io = resp.getWriter();
-        io.write(String.valueOf(sumItem+quantity));
-        if (isItemExist){
+        io.write(String.valueOf(sumItem));
+        if (isItemExist) {
             return;
         }
         HttpSession httpSession = req.getSession(false);
@@ -77,21 +91,29 @@ public class CartServlet extends HttpServlet {
     }
 
     private void updateQuantity(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        productId = Integer.parseInt(req.getParameter("id"));
-        quantity = Integer.parseInt(req.getParameter("quantity"));
         HttpSession httpSession = req.getSession(false);
         User user = (User) httpSession.getAttribute("name");
         CartService cartService = new CartService();
         int id = user.getUserId();
-        if (quantity !=0){
-            cartService.addQuantity(id,productId,quantity);
-        }else{
-            cartService.deleteItem(id,productId);
+        if (quantity != 0) {
+            cartService.addQuantity(id, productId, quantity);
+
+        } else {
+            cartService.deleteItem(id, productId);
         }
     }
-    private void redirectCartPage(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("listCartItem",listproduct);
-        req.getRequestDispatcher("/cart.jsp").forward(req,resp);
+    private void getListCartItem(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        resp.getWriter().write(new Gson().toJson(listproduct));
+    }
+
+    private void redirectCartPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession httpSession = req.getSession(false);
+        User user = (User) httpSession.getAttribute("name");
+        req.setAttribute("listCartItem", listproduct);
+        req.setAttribute("user", user);
+        req.getRequestDispatcher("/cart.jsp").forward(req, resp);
     }
 
 }
