@@ -30,7 +30,7 @@ service/GetListProduct.java
  service.GetListProduct
 view/Library.java
  view.Library
-view/Body.java
- view.Body
 controller/CartServlet.java
  controller.CartServlet
+view/Body.java
+ view.Body

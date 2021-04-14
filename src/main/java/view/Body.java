@@ -61,44 +61,54 @@ public class Body {
                 "    <div class='container'>" +
                 "        <ul class='nav'>" +
                 "            <li class='nav-item'><a href='/index.jsp' class='nav-link'>HOME</a></li>" +
-                "            <li><a class='nav-link dropdown-toggle' data-toggle='dropdown' href='' role='button' aria-haspopup='true'" +
-                "                   aria-expanded='false'>THE GOOGLE</a>" +
-                "                <div class='dropdown-menu'>" +
+                "<li>" +
+                "<div class='dropdown'>" +
+                "<a class='dropbtn nav-link' data-toggle='dropdown' role='button' aria-haspopup='true' +" +
+                "               aria-expanded='false'>THE GOOGLE</a>" +
+                "<div class='dropdown-content'>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Google Play Card&cur=USD'>THE GOOGLE USD</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Google Play Card&cur=VND'>THE GOOGLE VND</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Google Play Card&cur=HKD'>THE GOOGLE HKD</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Google Play Card&cur=EUR'>THE GOOGLE EUR</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Google Play Card&cur=JP'>THE GOOGLE JP</a>" +
-                "                </div>" +
-                "            </li>" +
-                "            <li><a class='nav-link dropdown-toggle' data-toggle='dropdown' href='' role='button' aria-haspopup='true'" +
-                "                   aria-expanded='false'>THE DIEN THOAI</a>" +
-                "                <div class='dropdown-menu'>" +
+                "</div>" +
+                "<li>"+
+                "<div class='dropdown'>" +
+                "<a class='dropbtn nav-link' data-toggle='dropdown' role='button' aria-haspopup='true' +" +
+                "               aria-expanded='false'>THE DIEN THOAI</a>" +
+                "  <div class='dropdown-content'>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Viettel&cur=VND'>THE VIETTEL</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Mobile phone Card&cur=VND'>THE MOBBILE</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Vinaphone Card&cur=VND'>THE VINAPHONE</a>" +
-                "                </div>" +
-                "            </li>" +
-                "            <li><a class='nav-link dropdown-toggle' data-toggle='dropdown' href='' role='button' aria-haspopup='true'" +
-                "                   aria-expanded='false'>THE STEAM</a>" +
-                "                <div class='dropdown-menu'>" +
+                "  </div>" +
+                "</div>" +
+                "</li>" +
+                "<li>"+
+                "<div class='dropdown'>"+
+                "<a class='dropbtn nav-link' data-toggle='dropdown' role='button' aria-haspopup='true' +" +
+                "               aria-expanded='false'>THE STEAM</a>" +
+                "    <div class='dropdown-content'>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Steam Card&cur=USD'>THE STEAM USD</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Steam Card&cur=VND'>THE STEAM VND</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Steam Card&cur=HKD'>THE STEAM HKD</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Steam Card&cur=EUR'>THE STEAM EUR</a>" +
-                "                </div>" +
-                "            </li>" +
-                "            <li><a class='nav-link dropdown-toggle' data-toggle='dropdown' href='' role='button' aria-haspopup='true'" +
-                "                   aria-expanded='false'>THE ITUNE</a>" +
-                "                <div class='dropdown-menu'>" +
+                "    </div>" +
+                "</div>"+
+                "</li>" +
+                "<li>"+
+                "<div class='dropdown'>"+
+                "<a class='dropbtn nav-link' data-toggle='dropdown' role='button' aria-haspopup='true' +" +
+                "aria-expanded='false'>THE ITUNE</a>" +
+                "<div class='dropdown-content'>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Itunes Card&cur=USD'>THE ITUNE USD</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Itunes Card&cur=EUR'>THE ITUNE EUR</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Itunes Card&cur=HKD'>THE ITUNE HKD</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Itunes Card&cur=GBP'>THE ITUNE GBP</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Itunes Card&cur=VND'>THE ITUNE VND</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Itunes Card&cur=JP'>THE ITUNE JP</a>" +
-                "                </div>" +
-                "            </li>" + linkkey +
+                "</div>" +
+                "</div>"+
+                "</li>" + linkkey +
                 "        </ul>" +
                 "    </div>" +
                 "</nav>";

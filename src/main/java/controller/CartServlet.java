@@ -17,7 +17,6 @@ import java.util.List;
 @WebServlet(name = "CartServlet", value = "/cart")
 public class CartServlet extends HttpServlet {
     List<CartItem> listproduct=null;
-
     int productId;
     int quantity;
 
