@@ -23,7 +23,7 @@ public class GetListProduct implements IGetProduct {
                     listProduct.add(new Product(
                             resultSet.getInt("id"),
                             resultSet.getString("type"),
-                            resultSet.getFloat("value"),
+                            resultSet.getInt("value"),
                             resultSet.getInt("rate"),
                             resultSet.getString("currency"),
                             resultSet.getString("image")));

@@ -4,13 +4,13 @@ package model;
 public class Product {
     private int productId;
     private String type;
-    private Float value;
+    private int value;
     private int rate;
     private String currency;
     private String image;
     private String key;
 
-    public Product(int productId, String type, float value, int rate, String currency, String image) {
+    public Product(int productId, String type, int value, int rate, String currency, String image) {
         this.productId = productId;
         this.type = type;
         this.value = value;
@@ -27,7 +27,7 @@ public class Product {
         return type;
     }
 
-    public Float getValue() {
+    public int getValue() {
         return value;
     }
 
@@ -51,7 +51,7 @@ public class Product {
         this.type = type;
     }
 
-    public void setValue(Float value) {
+    public void setValue(int value) {
         this.value = value;
     }
 
@@ -63,7 +63,7 @@ public class Product {
         this.key = key;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return rate * value;
     }
 }

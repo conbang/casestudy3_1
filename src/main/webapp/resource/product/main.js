@@ -107,18 +107,10 @@ function remove(e) {
 }
 
 function payment() {
-    let myObj = [];
-    for (i = 0; i < listprotduct.length; i++) {
-        if ($("input[type=checkbox]:eq(" + i + ")").prop('checked')) {
-            myObj[myObj.length] = $("input[type=checkbox]:eq(" + i + ")").attr('data-id')
-        }
-    }
-    let myJson = JSON.stringify({id:myObj})
     $.ajax({
-        url: '/payment',
-        type: 'post',
-        dataType: 'application/json',
-        data: myJson
+        url: '/payment?action=payment',
+        type: 'get',
+        dataType: 'html',
     }).done(function (resp) {
 
     })

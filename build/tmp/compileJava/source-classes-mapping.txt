@@ -2,39 +2,39 @@ controller/AdminServlet.java
  controller.AdminServlet
 controller/LoginServLet.java
  controller.LoginServLet
-model/CartItem.java
- model.CartItem
-service/CartService.java
- service.CartService
+view/Library.java
+ view.Library
+view/Body.java
+ view.Body
 service/Register.java
  service.Register
 service/Login.java
  service.Login
-controller/PaymentServlet.java
- controller.PaymentServlet
+model/User.java
+ model.User
 service/LoginService.java
  service.LoginService
 service/DatabaseConnection.java
  service.DatabaseConnection
 service/IGetProduct.java
  service.IGetProduct
-controller/CartServlet.java
- controller.CartServlet
-service/IRegister.java
- service.IRegister
-model/User.java
- model.User
-service/PaymentService.java
- service.PaymentService
-view/Body.java
- view.Body
 service/ICart.java
  service.ICart
-service/GetListProduct.java
- service.GetListProduct
-view/Library.java
- view.Library
+service/IRegister.java
+ service.IRegister
+controller/CartServlet.java
+ controller.CartServlet
 model/Product.java
  model.Product
+model/CartItem.java
+ model.CartItem
+service/CartService.java
+ service.CartService
 controller/ProductServlet.java
  controller.ProductServlet
+service/GetListProduct.java
+ service.GetListProduct
+service/PaymentService.java
+ service.PaymentService
+controller/PaymentServlet.java
+ controller.PaymentServlet
