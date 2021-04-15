@@ -61,17 +61,13 @@ public class LoginServLet extends HttpServlet {
         if (register.register(name, email, psw) == 0) {
             req.setAttribute("msg","email da ton tai!");
             req.setAttribute("action","register");
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/login.jsp");
-            try{
-                dispatcher.forward(req,resp);
-            }catch (ServletException | IOException e){
-                e.printStackTrace();
-            }
+            req.getRequestDispatcher("/login.jsp").forward(req,resp);
         }else{
             HttpSession session = req.getSession();
-            session.setAttribute("name", email);
+            session.setAttribute("email", email);
+            session.setAttribute("psw", psw);
             session.setMaxInactiveInterval(5);
-            resp.sendRedirect("/index.jsp");
+            req.getRequestDispatcher("/login?action=login").forward(req,resp);
         }
 
     }

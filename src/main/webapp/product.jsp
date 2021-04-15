@@ -2,7 +2,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.LinkedList" %>
 <%@ page import="view.Library" %>
-<%@ page import="view.Body" %><%--
+<%@ page import="view.Body" %>
+<%@ page import="model.User" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 08/04/2021
@@ -29,7 +30,7 @@
 <%---------------header----------------%>
 <%
     HttpSession httpSession = request.getSession(false);
-    String s = (String) httpSession.getAttribute("name");
+    User s = (User) httpSession.getAttribute("name");
     if (s == null) {
         out.println(Body.getTopHeader("<a href='/login?action=loginForm'><i class='fas fa-user-circle'></i>Sign in</a>'"));
     } else {

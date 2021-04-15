@@ -1,13 +1,15 @@
-let cost=0;
-let wallet=0;
+let cost = 0;
+let wallet = 0;
 let listprotduct = [];
 
 function getItemCost() {
     for (i = 0; i < $("input[type='number']").length; i++) {
-        listprotduct[i] = {id: $("input[type=checkbox]:eq(" + i + ")").attr("data-id"),
-            amount: $("input[type=number]:eq("+i+")").val()*$("input[type=checkbox]:eq(" + i + ")").attr("data-price")}
+        listprotduct[i] = {
+            id: $("input[type=checkbox]:eq(" + i + ")").attr("data-id"),
+            amount: $("input[type=number]:eq(" + i + ")").val() * $("input[type=checkbox]:eq(" + i + ")").attr("data-price")
+        }
     }
-    wallet=$("#overbalance").text()
+    wallet = $("#overbalance").text()
     console.log(wallet)
 }
 
@@ -47,11 +49,11 @@ function chooseItem(e) {
         }
     }
     $("#cost").text(cost);
-    $("#overbalance").text(wallet-cost)
-    if(wallet-cost<0){
-        $(".checkout").prop('disabled',true);
-    }else{
-        $(".checkout").prop('disabled',false);
+    $("#overbalance").text(wallet - cost)
+    if (wallet - cost >= 0 && cost != 0 ) {
+        $(".checkout").prop('disabled', false);
+    } else {
+        $(".checkout").prop('disabled', true);
     }
 }
 
@@ -102,5 +104,23 @@ function remove(e) {
     let productId = $(e).attr("data-id")
     $("#" + productId).remove()
     updateData(productId, 0)
+}
+
+function payment() {
+    let myObj = [];
+    for (i = 0; i < listprotduct.length; i++) {
+        if ($("input[type=checkbox]:eq(" + i + ")").prop('checked')) {
+            myObj[myObj.length] = $("input[type=checkbox]:eq(" + i + ")").attr('data-id')
+        }
+    }
+    let myJson = JSON.stringify({id:myObj})
+    $.ajax({
+        url: '/payment',
+        type: 'post',
+        dataType: 'application/json',
+        data: myJson
+    }).done(function (resp) {
+
+    })
 }
 

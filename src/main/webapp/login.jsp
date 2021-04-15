@@ -53,7 +53,6 @@
         }
         out.println(Body.getRegisterForm(msg));
     }
-
 %>
 </div>
 <%

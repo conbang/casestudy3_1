@@ -51,13 +51,15 @@ public class CartServlet extends HttpServlet {
         listproduct = cartService.getListCartItem(user.getUserId());
         JsonObject data = new Gson().fromJson(req.getReader(), JsonObject.class);
         String action = data.get("action").getAsString();
-        productId = data.get("id").getAsInt();
-        quantity = data.get("quantity").getAsInt();
         switch (action) {
             case "updateQuantity":
+                productId = data.get("id").getAsInt();
+                quantity = data.get("quantity").getAsInt();
                 updateQuantity(req, resp);
                 break;
             case "additem":
+                productId = data.get("id").getAsInt();
+                quantity = data.get("quantity").getAsInt();
                 addItem(req, resp);
                 break;
         }

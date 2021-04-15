@@ -192,7 +192,7 @@ public class Body {
                 "                    <form method='POST' action='/login?action=register'>" +
                 "                        <div class='form-group'>" +
                 "                            <label for='name'>Ho va ten</label>" +
-                "                           <input class='form-control form-control-lg' type='text' name='name'  placeholder='Ho va ten' pattern='[a-zA-Z0-9]{6,}' required>" +
+                "                           <input class='form-control form-control-lg' type='text' name='name'  placeholder='Ho va ten' required>" +
                 "                        </div>" +
                 "                        <div class='form-group'>" +
                 "                            <label for='exampleInputEmail1'>Email</label>" +

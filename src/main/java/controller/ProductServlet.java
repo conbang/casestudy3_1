@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,7 +36,7 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    private void showListTypeProduct(HttpServletRequest req, HttpServletResponse resp) {
+    private void showListTypeProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String type = req.getParameter("type");
         String currency = req.getParameter("cur");
         List<Product> ListTypeProduct = new LinkedList<>();
@@ -45,14 +46,7 @@ public class ProductServlet extends HttpServlet {
             }
         }
         req.setAttribute("list", ListTypeProduct);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/product.jsp");
-        try {
-            dispatcher.forward(req, resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        req.getRequestDispatcher("/product.jsp").forward(req,resp);
     }
 
     private void showProduct(HttpServletRequest req, HttpServletResponse resp) {

@@ -120,10 +120,9 @@
                         <span><strong id="overbalance">${requestScope['user'].wallet}</strong></span>
                     </li>
                 </ul>
-                <button type="button" class="checkout btn btn-primary btn-block" onclick="checkout()">go to checkout</button>
+                <button type="button" class="checkout btn btn-primary btn-block" onclick="payment()" disabled>go to checkout</button>
             </div>
         </div>
-
     </div>
 </div>
 <%
