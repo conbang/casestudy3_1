@@ -102,7 +102,7 @@ function updateData(productId, amount) {
 
 function remove(e) {
     let productId = $(e).attr("data-id")
-    $("#" + productId).remove()
+    $("#").remove()
     updateData(productId, 0)
 }
 

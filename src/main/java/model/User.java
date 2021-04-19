@@ -5,6 +5,21 @@ public class User {
     private String name;
     private String email;
     private int wallet;
+    private String password;
+    public User() {
+    }
+
+    public User(int userId, String name, String email) {
+        this.userId = userId;
+        this.name = name;
+        this.email = email;
+    }
+
+    public User(int userId, int wallet) {
+        this.userId = userId;
+        this.wallet = wallet;
+    }
+
 
     public User(String name, int userId, String email, int balance) {
         this.name = name;

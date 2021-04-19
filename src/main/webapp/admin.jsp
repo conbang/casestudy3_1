@@ -47,7 +47,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <a href="/index.jsp">
+                <a href="/admin.jsp">
                     <img src="resource/logo.jpg" alt="logo">
                 </a>
             </div>
@@ -123,19 +123,15 @@
 </nav>
 <div class="body">
     <div class="container">
-        <h3>TAO LA ADMIN</h3>
+        <h3>ADMIN</h3>
         <div class="row">
-            <a href="#" class="col-lg-3 account-info">
+            <a href="admin?action=deposit" class="col-lg-5 account-info">
                 <i class="fas fa-user"></i>
-                <span>KHÁCH HÀNG</span>
+                <span>NAP TIEN</span>
             </a>
-            <a href="#" class="col-lg-3 account-info">
+            <a href="#" class="col-lg-5 account-info">
                 <i class="fas fa-calendar-alt"></i>
-                <span>SẢN PHẨM</span>
-            </a>
-            <a href="#" class="col-lg-3 account-info">
-                <i class="fas fa-key"></i>
-                <span>ĐƠN HÀNG</span>
+                <span>SAN PHAM</span>
             </a>
         </div>
         <div class="row">

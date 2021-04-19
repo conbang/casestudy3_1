@@ -43,25 +43,45 @@
     if (s == null) {
         out.println(Body.getNavbar("<li class='nav-item'><a href='/login.jsp' class='nav-link'>NHAN KEY</a></li>"));
     } else {
-        out.println(Body.getNavbar("<li class='nav-item'><a href='/account?action=key' class='nav-link'>NHAN KEY</a></li>"));
+        out.println(Body.getNavbar("<li class='nav-item'><a href='/product?action=key' class='nav-link'>NHAN KEY</a></li>"));
     }
 %>
 <div class="body">
     <div class="container">
         <div class="row">
         <c:forEach items="${requestScope['list']}" var="list">
-            <div class="card col-lg-3">
-                <img class="card-img-top" src="${list.getImage()}" alt="Card image">
+            <div class="card col-lg-2">
+                <img class="card-img-top img-fluid w-90" src="${list.getImage()}" alt="Card image">
                 <div class="card-body">
                     <h5 class="card-title"><c:out
                             value="${list.getType()} ${list.getValue()} ${list.getCurrency()}"></c:out></h5>
                     <p class="card-text"><c:out value="${list.getPrice()}"></c:out> d</p>
-                    <a href="#" class="btn btn-primary">Add to cart</a>
+                    <button type="button" class="add-cart btn btn-primary" data-toggle="modal"
+                            data-target="#addsuccess" data-id="${list.getProductId()}" data-target="#addsuccess" onclick="addcart(this)">Add to cart</button>
             </div>
             </div>
         </c:forEach>
     </div>
 </div>
+</div>
+<div class="modal fade" id="addsuccess" tabindex="-1" role="dialog" aria-labelledby="addsuccess" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Da them gio hang thanh cong</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>them vao gio hang thanh cong!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tiep tuc mua hang</button>
+                <button type="button" class="btn btn-primary"><a href="cart?action=checkout">Den gio hang</a></button>
+            </div>
+        </div>
+    </div>
 </div>
 <%
     out.println(Body.getFooter());

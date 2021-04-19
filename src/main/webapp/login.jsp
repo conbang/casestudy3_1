@@ -37,22 +37,15 @@
     if (s == null) {
         out.println(Body.getNavbar("<li class='nav-item'><a href='/login.jsp' class='nav-link'>NHAN KEY</a></li>"));
     } else {
-        out.println(Body.getNavbar("<li class='nav-item'><a href='/account?action=key' class='nav-link'>NHAN KEY</a></li>"));
+        out.println(Body.getNavbar("<li class='nav-item'><a href='/product?action=key' class='nav-link'>NHAN KEY</a></li>"));
     }
 %>
 <%------------------------login/register --------------------------%>
 <div class="body">
 <%
     String action = (String) request.getAttribute("action");
-    if(action.equals("login")){
         out.println(Body.getLoginForm());
-    }else if(action.equals("register")){
-        String msg = (String) request.getAttribute("msg");
-        if(msg == null){
-            msg = "";
-        }
-        out.println(Body.getRegisterForm(msg));
-    }
+
 %>
 </div>
 <%

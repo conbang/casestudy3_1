@@ -41,7 +41,7 @@
     if (s == null) {
         out.println(Body.getNavbar("<li class='nav-item'><a href='/login.jsp' class='nav-link'>NHAN KEY</a></li>"));
     } else {
-        out.println(Body.getNavbar("<li class='nav-item'><a href='/account?action=key' class='nav-link'>NHAN KEY</a></li>"));
+        out.println(Body.getNavbar("<li class='nav-item'><a href='/product?action=key' class='nav-link'>NHAN KEY</a></li>"));
     }
 %>
 <%------------------------login/register --------------------------%>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div onclick="remove(this)" data-id=${Item.product.productId}>
-                                    <p type="button" class="card-link-secondary small text-uppercase mr-3"><i
+                                    <p type="button" class="card-link-secondary small text-uppercase mr-3" style="color: #fff"><i
                                             class="fas fa-trash-alt mr-1" onclick="remove(this)"></i> Remove item </p>
                                 </div>
                                 <p class="mb-0"><span class="card-price"><strong
@@ -120,7 +120,23 @@
                         <span><strong id="overbalance">${requestScope['user'].wallet}</strong></span>
                     </li>
                 </ul>
-                <button type="button" class="checkout btn btn-primary btn-block" onclick="payment()" disabled>go to checkout</button>
+                <button type="button" class="checkout btn btn-primary btn-block" onclick="payment()" data-toggle="modal" data-target="#addsuccess" disabled>go to checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="addsuccess" tabindex="-1" role="dialog" aria-labelledby="addsuccess" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thanh toan don hang thanh cong</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tiep tuc mua hang</button>
+                <button type="button" class="btn btn-primary"><a href="/Order?id=<%out.print(s.getUserId());%>">Nhan key</a></button>
             </div>
         </div>
     </div>

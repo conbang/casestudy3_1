@@ -1,9 +1,8 @@
 package controller;
 
+import model.User;
 import service.GetListProduct;
 import model.Product;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,7 +32,26 @@ public class ProductServlet extends HttpServlet {
             case "product":
                 showProduct(req, resp);
                 break;
+            case "":
+                homepage(req, resp);
+                break;
+            case "key":
+                showKey(req,resp);
+                break;
         }
+    }
+    private void homepage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Product> ListBestSeller = new GetListProduct().getListBestSeller();
+        req.setAttribute("listBestSeller", ListBestSeller);
+        req.setAttribute("listProduct",list);
+        req.getRequestDispatcher("/index.jsp").forward(req,resp);
+    }
+    private void showKey(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        User user = (User) session.getAttribute("name");
+
+        req.getRequestDispatcher("/Order?id="+user.getUserId()).forward(req,resp);
+
     }
 
     private void showListTypeProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -50,9 +68,9 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void showProduct(HttpServletRequest req, HttpServletResponse resp) {
-        int id = Integer.parseInt(req.getParameter("id"));
+        int productId = Integer.parseInt(req.getParameter("id"));
         for (int i = 0; i < list.size(); i++) {
-            if (id == list.get(i).getProductId()) {
+            if (productId == list.get(i).getProductId()) {
 
             }
         }

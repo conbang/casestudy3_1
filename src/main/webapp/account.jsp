@@ -131,7 +131,7 @@
     <div class="container">
         <h3>QUẢN LÝ</h3>
         <div class="row">
-            <a href="#" class="col-lg-3 account-info">
+            <a href="/User-if?id=<%out.print(s.getUserId());%>" class="col-lg-3 account-info">
                 <i class="fas fa-user"></i>
                 <span>KHÁCH HÀNG</span>
             </a>
@@ -139,7 +139,7 @@
                 <i class="fas fa-calendar-alt"></i>
                 <span>SẢN PHẨM</span>
             </a>
-            <a href="#" class="col-lg-3 account-info">
+            <a href="/Order?id=<%out.print(s.getUserId());%>" class="col-lg-3 account-info">
                 <i class="fas fa-key"></i>
                 <span>ĐƠN HÀNG</span>
             </a>

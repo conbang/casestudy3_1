@@ -27,7 +27,7 @@ public class Body {
                 "    <div class='container'>" +
                 "        <div class='row'>" +
                 "            <div class='col-lg-3'>" +
-                "                <a href='/index.jsp'>" +
+                "                <a href='/product?action='>" +
                 "                    <img src='resource/logo.jpg' alt='logo'>" +
                 "                </a>" +
                 "            </div>" +
@@ -40,7 +40,6 @@ public class Body {
                 "                </div>" +
                 "            </div>" +
                 "            <div class='shopping__cart col-lg-2'>" +
-                "                <i class='shopping__cart-img fas fa-shopping-cart'></i>" +
                 "                <ul class='cart-title'>" +
                 "                    <li>" +
                 "                        <h4>Gio hang</h4>" +
@@ -77,7 +76,7 @@ public class Body {
                 "<a class='dropbtn nav-link' data-toggle='dropdown' role='button' aria-haspopup='true' +" +
                 "               aria-expanded='false'>THE DIEN THOAI</a>" +
                 "  <div class='dropdown-content'>" +
-                "                    <a class='dropdown-item' href='/product?action=category&type=Viettel&cur=VND'>THE VIETTEL</a>" +
+                "                    <a class='dropdown-item' href='/product?action=category&type=Viettel Card&cur=VND'>THE VIETTEL</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Mobile phone Card&cur=VND'>THE MOBBILE</a>" +
                 "                    <a class='dropdown-item' href='/product?action=category&type=Vinaphone Card&cur=VND'>THE VINAPHONE</a>" +
                 "  </div>" +
@@ -132,7 +131,7 @@ public class Body {
                 "                          name='psw' pattern='[a-zA-Z0-9]{6,}' required>" +
                 "                    </div>" +
                 "                    <button type='submit' class='btn btn btn-secondary'>Dang nhap</button>" +
-                "                    <a href='/login?action=registerForm'>Khong co tai khoan? Tao tai khoan o day</a>" +
+                "                    <a href='/register.jsp'>Khong co tai khoan? Tao tai khoan o day</a>" +
                 "                </form>" +
                 "            </div>" +
                 "" +

@@ -44,13 +44,18 @@ i{
     display: flex;
     flex-direction:row;
 }
-.shopping__cart-img{
+.shopping__cart-items{
     font-size: 2.6rem;
+    text-align: center;
     color: #fff;
 }
-.shopping__cart-items{
+.shopping__cart-price{
     color: #E0463B;
+    text-align: center;
     font-size: 1.2rem;
+}
+.shopping__cart-button{
+    width:90%;
 }
 .navigation{
     background-color: #0C1015;

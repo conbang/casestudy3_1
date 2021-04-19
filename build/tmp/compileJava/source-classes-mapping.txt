@@ -1,40 +1,62 @@
 controller/AdminServlet.java
  controller.AdminServlet
-controller/LoginServLet.java
- controller.LoginServLet
-view/Library.java
- view.Library
-view/Body.java
- view.Body
-service/Register.java
- service.Register
-service/Login.java
- service.Login
-model/User.java
- model.User
-service/LoginService.java
- service.LoginService
-service/DatabaseConnection.java
- service.DatabaseConnection
-service/IGetProduct.java
- service.IGetProduct
-service/ICart.java
- service.ICart
-service/IRegister.java
- service.IRegister
-controller/CartServlet.java
- controller.CartServlet
-model/Product.java
- model.Product
+model/Orders.java
+ model.Orders
+service/AdminService.java
+ service.AdminService
 model/CartItem.java
  model.CartItem
-service/CartService.java
- service.CartService
+service/Register.java
+ service.Register
+service/getOrders.java
+ service.getOrders
+service/Login.java
+ service.Login
+controller/EditWalletServlet.java
+ controller.EditWalletServlet
+controller/LoginServLet.java
+ controller.LoginServLet
+controller/CartServlet.java
+ controller.CartServlet
+service/IGetOrders.java
+ service.IGetOrders
+service/IGetProduct.java
+ service.IGetProduct
 controller/ProductServlet.java
  controller.ProductServlet
-service/GetListProduct.java
- service.GetListProduct
+controller/OrdersServlet.java
+ controller.OrdersServlet
+model/User.java
+ model.User
 service/PaymentService.java
  service.PaymentService
+controller/UserIFServlet.java
+ controller.UserIFServlet
+service/GetListProduct.java
+ service.GetListProduct
+view/Body.java
+ view.Body
+service/CartService.java
+ service.CartService
+model/Product.java
+ model.Product
 controller/PaymentServlet.java
  controller.PaymentServlet
+service/LoginService.java
+ service.LoginService
+service/FindAllUser.java
+ service.FindAllUser
+service/ChangeIFAService.java
+ service.ChangeIFAService
+service/DatabaseConnection.java
+ service.DatabaseConnection
+service/IRegister.java
+ service.IRegister
+service/ICart.java
+ service.ICart
+view/Library.java
+ view.Library
+controller/OrderDetailServlet.java
+ controller.OrderDetailServlet
+service/getOrderDetails.java
+ service.getOrderDetails

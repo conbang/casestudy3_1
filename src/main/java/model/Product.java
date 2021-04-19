@@ -59,6 +59,10 @@ public class Product {
         this.currency = currency;
     }
 
+    public int getRate() {
+        return rate;
+    }
+
     public void setKey(String key) {
         this.key = key;
     }

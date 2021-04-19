@@ -73,7 +73,6 @@ public class LoginServLet extends HttpServlet {
     }
 
     private void loginForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("action", "login");
         RequestDispatcher dispatcher = req.getRequestDispatcher("/login.jsp");
         try {
             dispatcher.forward(req, resp);
@@ -83,8 +82,7 @@ public class LoginServLet extends HttpServlet {
     }
 
     private void registerForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("action", "register");
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/login.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/register.jsp");
         try {
             dispatcher.forward(req, resp);
         } catch (ServletException | IOException e) {
@@ -100,8 +98,8 @@ public class LoginServLet extends HttpServlet {
         if (user != null) {
             HttpSession session = req.getSession();
             session.setAttribute("name", user);
-            session.setMaxInactiveInterval(1000);
-            resp.sendRedirect("/index.jsp");
+            session.setMaxInactiveInterval(100000);
+            resp.sendRedirect("/product?action=");
         } else if(name.equals("admin@gmail.com")&&psw.equals("admin123")){
             HttpSession session = req.getSession();
             session.setAttribute("name",name);
